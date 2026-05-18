@@ -1,0 +1,147 @@
+<!-- ========================= -->
+<!-- base.html -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INFLASIGHT AI</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#050816;
+            color:white;
+        }
+
+        .navbar{
+            width:100%;
+            padding:20px 60px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:#0b1023;
+            border-bottom:1px solid rgba(255,255,255,0.1);
+            position:sticky;
+            top:0;
+        }
+
+        .logo{
+            font-size:32px;
+            font-weight:bold;
+            color:#4da3ff;
+        }
+
+        .menu{
+            display:flex;
+            gap:20px;
+        }
+
+        .menu a{
+            color:white;
+            text-decoration:none;
+            padding:12px 20px;
+            border-radius:12px;
+            transition:0.3s;
+        }
+
+        .menu a:hover{
+            background:#4da3ff;
+        }
+
+        .container{
+            padding:60px;
+        }
+
+        .card{
+            background:#101b2d;
+            padding:30px;
+            border-radius:20px;
+            margin-top:25px;
+            box-shadow:0 0 20px rgba(0,0,0,0.3);
+        }
+
+        input{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:12px;
+            margin-top:15px;
+            background:#0f172a;
+            color:white;
+        }
+
+        button{
+            margin-top:20px;
+            padding:15px 30px;
+            border:none;
+            border-radius:12px;
+            background:#4da3ff;
+            color:white;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:scale(1.05);
+        }
+
+        table{
+            width:100%;
+            margin-top:20px;
+            border-collapse:collapse;
+        }
+
+        table th, table td{
+            border:1px solid rgba(255,255,255,0.1);
+            padding:15px;
+            text-align:left;
+        }
+
+        table th{
+            background:#172554;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="logo">
+            INFLASIGHT
+        </div>
+
+        <div class="menu">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/prediction">Prediction</a>
+            <a href="/analytics">Analytics</a>
+            <a href="/models">Models</a>
+            <a href="/about">About</a>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</body>
+</html>

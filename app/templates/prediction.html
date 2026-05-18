@@ -1,0 +1,43 @@
+<!-- ========================= -->
+<!-- prediction.html -->
+<!-- ========================= -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Inflation Prediction</h1>
+
+<div class="card">
+
+    <h2>Predict Future Inflation</h2>
+
+    <form>
+
+        <input type="number" placeholder="Input Year">
+
+        <input type="number" placeholder="GDP Value">
+
+        <input type="number" placeholder="Interest Rate">
+
+        <input type="number" placeholder="Exchange Rate">
+
+        <button type="submit">
+            Predict Inflation
+        </button>
+
+    </form>
+
+</div>
+
+<div class="card">
+
+    <h2>Prediction Result</h2>
+
+    <h1 style="margin-top:20px; color:#4da3ff;">
+        4.23%
+    </h1>
+
+</div>
+
+{% endblock %}

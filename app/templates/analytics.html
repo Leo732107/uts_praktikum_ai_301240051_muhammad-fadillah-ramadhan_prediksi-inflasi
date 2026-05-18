@@ -1,0 +1,74 @@
+<!-- ========================= -->
+<!-- analytics.html -->
+<!-- ========================= -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Analytics Dashboard</h1>
+
+<div class="card">
+
+    <h2>Model Performance</h2>
+
+    <table>
+
+        <tr>
+            <th>Model</th>
+            <th>MAE</th>
+            <th>RMSE</th>
+            <th>R2 Score</th>
+        </tr>
+
+        <tr>
+            <td>Linear Regression</td>
+            <td>0.23</td>
+            <td>0.31</td>
+            <td>0.81</td>
+        </tr>
+
+        <tr>
+            <td>ANN</td>
+            <td>0.18</td>
+            <td>0.25</td>
+            <td>0.89</td>
+        </tr>
+
+        <tr>
+            <td>LSTM</td>
+            <td>0.15</td>
+            <td>0.21</td>
+            <td>0.92</td>
+        </tr>
+
+        <tr>
+            <td>KMeans</td>
+            <td>-</td>
+            <td>-</td>
+            <td>0.76</td>
+        </tr>
+
+        <tr>
+            <td>Backpropagation</td>
+            <td>0.17</td>
+            <td>0.24</td>
+            <td>0.90</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<div class="card">
+
+    <h2>Conclusion</h2>
+
+    <p style="margin-top:20px; line-height:1.8;">
+        LSTM achieved the best performance with the lowest
+        RMSE and highest R2 Score.
+    </p>
+
+</div>
+
+{% endblock %}
