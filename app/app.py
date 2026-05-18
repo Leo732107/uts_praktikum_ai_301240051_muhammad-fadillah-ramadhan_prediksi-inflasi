@@ -5,42 +5,43 @@ from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 
-# ==============================
-# LOAD MODEL & SCALER
-# ==============================
+# =========================================
+# LOAD MODELS
+# =========================================
 
-lr_model = joblib.load('../models/linear_regression.pkl')
-scaler = joblib.load('../models/scaler.pkl')
+lr_model = joblib.load('models/linear_regression.pkl')
 
-ann_model = load_model('../models/ann_model.h5')
+scaler = joblib.load('models/scaler.pkl')
 
-# ==============================
+ann_model = load_model('models/ann_model.h5')
+
+# =========================================
 # DASHBOARD
-# ==============================
+# =========================================
 
 @app.route('/')
 def dashboard():
     return render_template('dashboard.html')
 
-# ==============================
+# =========================================
 # ANALYTICS PAGE
-# ==============================
+# =========================================
 
 @app.route('/analytics')
 def analytics():
     return render_template('analytics.html')
 
-# ==============================
+# =========================================
 # ABOUT PAGE
-# ==============================
+# =========================================
 
 @app.route('/about')
 def about():
     return render_template('about.html')
 
-# ==============================
+# =========================================
 # PREDICTION PAGE
-# ==============================
+# =========================================
 
 @app.route('/prediction', methods=['GET', 'POST'])
 def prediction():
@@ -67,9 +68,9 @@ def prediction():
         prediction=prediction_result
     )
 
-# ==============================
-# RUN APP
-# ==============================
+# =========================================
+# RUN FLASK
+# =========================================
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
