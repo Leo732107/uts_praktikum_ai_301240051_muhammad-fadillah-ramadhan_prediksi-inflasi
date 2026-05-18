@@ -1,74 +1,149 @@
-<!-- ========================= -->
-<!-- analytics.html -->
-<!-- ========================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INFLASIGHT Analytics</title>
 
-{% extends 'base.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-{% block content %}
+    <style>
+        body{
+            margin:0;
+            background:#0f172a;
+            color:white;
+            font-family:Arial;
+        }
 
-<h1>Analytics Dashboard</h1>
+        .navbar{
+            background:#111827;
+            padding:20px;
+            display:flex;
+            justify-content:space-between;
+        }
 
-<div class="card">
+        .navbar a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+        }
 
-    <h2>Model Performance</h2>
+        .container{
+            width:90%;
+            margin:auto;
+            margin-top:40px;
+        }
 
-    <table>
+        .card{
+            background:#1e293b;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 0 20px rgba(0,0,0,0.4);
+        }
 
-        <tr>
-            <th>Model</th>
-            <th>MAE</th>
-            <th>RMSE</th>
-            <th>R2 Score</th>
-        </tr>
+        h1{
+            color:#38bdf8;
+        }
 
-        <tr>
-            <td>Linear Regression</td>
-            <td>0.23</td>
-            <td>0.31</td>
-            <td>0.81</td>
-        </tr>
+        canvas{
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body>
 
-        <tr>
-            <td>ANN</td>
-            <td>0.18</td>
-            <td>0.25</td>
-            <td>0.89</td>
-        </tr>
+    <div class="navbar">
+        <h2>INFLASIGHT</h2>
 
-        <tr>
-            <td>LSTM</td>
-            <td>0.15</td>
-            <td>0.21</td>
-            <td>0.92</td>
-        </tr>
+        <div>
+            <a href="/">Dashboard</a>
+            <a href="/analytics">Analytics</a>
+            <a href="/prediction">Prediction</a>
+            <a href="/about">About</a>
+        </div>
+    </div>
 
-        <tr>
-            <td>KMeans</td>
-            <td>-</td>
-            <td>-</td>
-            <td>0.76</td>
-        </tr>
+    <div class="container">
 
-        <tr>
-            <td>Backpropagation</td>
-            <td>0.17</td>
-            <td>0.24</td>
-            <td>0.90</td>
-        </tr>
+        <div class="card">
 
-    </table>
+            <h1>Inflation Analytics</h1>
 
-</div>
+            <p>
+                Grafik perkembangan tingkat inflasi Indonesia.
+            </p>
 
-<div class="card">
+            <canvas id="inflationChart"></canvas>
 
-    <h2>Conclusion</h2>
+        </div>
 
-    <p style="margin-top:20px; line-height:1.8;">
-        LSTM achieved the best performance with the lowest
-        RMSE and highest R2 Score.
-    </p>
+    </div>
 
-</div>
+<script>
 
-{% endblock %}
+const ctx = document.getElementById('inflationChart');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [
+            '2000','2002','2004','2006',
+            '2008','2010','2012','2014',
+            '2016','2018','2020','2022','2024'
+        ],
+
+        datasets: [{
+            label: 'Inflation Rate',
+
+            data: [
+                0.13,
+                0.17,
+                0.22,
+                0.31,
+                0.46,
+                0.47,
+                0.52,
+                0.57,
+                0.63,
+                0.64,
+                0.68,
+                0.73,
+                0.76
+            ],
+
+            borderWidth: 3,
+            tension: 0.4
+        }]
+    },
+
+    options: {
+        responsive: true,
+
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white'
+                }
+            }
+        },
+
+        scales: {
+
+            x: {
+                ticks: {
+                    color: 'white'
+                }
+            },
+
+            y: {
+                ticks: {
+                    color: 'white'
+                }
+            }
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
